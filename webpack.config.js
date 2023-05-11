@@ -16,8 +16,8 @@ module.exports = (env, argv) => {
     output: {
       path: path.join(__dirname, 'dist'),
       publicPath: 'auto',
-      filename: 'assets/js/[name].[contenthash:8].js',
-      chunkFilename: 'assets/js/[name].[id].js',
+      filename: 'js/[name].[contenthash:8].js',
+      chunkFilename: 'js/[name].[id].js',
       clean: true,
     },
 
@@ -27,10 +27,10 @@ module.exports = (env, argv) => {
         Config: path.join(__dirname, 'src/views/config/'),
         Includes: path.join(__dirname, 'src/views/includes/'),
         Layouts: path.join(__dirname, 'src/views/layouts/'),
-        Images: path.join(__dirname, 'src/assets/images/'),
-        Fonts: path.join(__dirname, 'src/assets/fonts/'),
-        Styles: path.join(__dirname, 'src/assets/styles/'),
-        Scripts: path.join(__dirname, 'src/assets/scripts/'),
+        Images: path.join(__dirname, 'src/images/'),
+        Fonts: path.join(__dirname, 'src/fonts/'),
+        Styles: path.join(__dirname, 'src/styles/'),
+        Scripts: path.join(__dirname, 'src/scripts/'),
       },
     },
 
@@ -38,7 +38,7 @@ module.exports = (env, argv) => {
       new PugPlugin({
         pretty: true,
         css: {
-          filename: 'assets/css/[name].[contenthash:8].css',
+          filename: 'css/[name].[contenthash:8].css',
         },
       }),
       new CopyWebpackPlugin({
@@ -71,10 +71,10 @@ module.exports = (env, argv) => {
         {
           test: /\.(woff2?|ttf|otf|eot|svg)$/,
           type: 'asset/resource',
-          include: /assets[\\/]fonts/,
+          include: /fonts/,
           generator: {
             // output filename of fonts
-            filename: 'assets/fonts/[name][ext][query]',
+            filename: 'fonts/[name][ext][query]',
           },
         },
 
@@ -83,10 +83,10 @@ module.exports = (env, argv) => {
           test: /\.(png|svg|jpe?g|webp)$/i,
           resourceQuery: { not: [/inline/] }, // ignore images with `?inline` query
           type: 'asset/resource',
-          include: /assets[\\/]images/, // images from `assets/images` directory only, match posix and win paths
+          include: /images/, // images from `images` directory only, match posix and win paths
           generator: {
             // output filename of images
-            filename: 'assets/img/[name].[hash:8][ext]',
+            filename: 'img/[name].[hash:8][ext]',
           },
         },
 
@@ -94,7 +94,7 @@ module.exports = (env, argv) => {
         {
           test: /\.(png|svg)$/i,
           type: 'asset',
-          include: /assets[\\/]images/,
+          include: /images/,
           exclude: /favicon/, // don't inline favicon
           parser: {
             dataUrlCondition: {

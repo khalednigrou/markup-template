@@ -1,35 +1,40 @@
 /**
  * Colors
 ====================*/
-
+/// List of Colors
 $colors: (
   // base
   prime: #0650cb,
   secend: #001750,
-  blk: #000000,
+
+  // gray
+  gray-k: #1d2528,
+  gray-light: #f0f0f1,
+  gray-mid: #c1c6c9,
+  gray-dark: #39464d,
   wht: #ffffff,
+  blk: #000000,
+  
+  // state
+  success: #a3ca60,
+  info: #0650cb,
+  warning: #eaba5d,
+  error: #dd3e34,
 
   // main
   bg: #ffffff,
-  text: #333,
-  border: #ccc,
-
-  // gray
-  gray-1: #666,
-  gray-2: #999,
-  gray-3: #ccc,
-
-  // state
-  success: #ccc,
-  info: #ccc,
-  warning: #ccc,
-  error: #ccc
+  text: #39464d,
+  border: #c1c6c9,
 ) !default;
+
+$clr-bg: map-get($colors, bg );
+$clr-text: map-get($colors, text );
+$clr-border: map-get($colors, border );
 
 /**
  * Breakpoints
-====================*/
-
+ ====================*/
+/// List of Breakpoints
 $breakpoints: (
   sm: 768,
   md: 1020,
@@ -39,7 +44,7 @@ $breakpoints: (
 /**
  * Design Sizes
 ====================*/
-
+/// List of Design sizes
 $design-sizes: (
   sp: 375,
   tb: 992,
@@ -49,6 +54,7 @@ $design-sizes: (
 /**
  * Spacing Units
 ====================*/
+/// List of Spacing Units
 
 $spacing-units: (
   xs: 8,
@@ -62,7 +68,7 @@ $spacing-units: (
 /**
  * Font sizes
 ====================*/
-
+/// List of Font Sizes
 $font-sizes: (
   "sm": _em(12),
   "md": 1em,
@@ -72,6 +78,7 @@ $font-sizes: (
 /**
  * Font Families
 ====================*/
+/// List of Font Families
 
 $font-families: (
   "default": sans-serif,

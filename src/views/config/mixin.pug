@@ -9,13 +9,13 @@ mixin meta_ogp(metas)
     meta(name="twitter:site", content=metas.siteurl)
     meta(name="twitter:card", content="summary")
     meta(name="twitter:description", content=metas.description)
-    meta(name="twitter:image:src", content=require("Images/ogp.png"))
+    meta(name="twitter:image:src", content=require("Images/ogp.jpg"))
     //- meta(name="twitter:creator", content="")
     meta(property="og:title", content=metas.title)
     meta(property="og:site_name", content=metas.title)
     meta(property="og:type", content="website")
     meta(property="og:locale", content=metas.locale)
-    meta(property="og:image", content=require("Images/ogp.png"))
+    meta(property="og:image", content=require("Images/ogp.jpg"))
     meta(property="og:description", content=metas.description)
     //- meta(property="fb:app_id", content="metas.fbAppId")
     
@@ -23,7 +23,6 @@ mixin favicon()
     //- Favicon
     link(rel='shortcut icon', href=require("Images/favicons/favicon-32px.png"))
     link(rel='shortcut icon', href=require("Images/favicons/favicon.svg"))
-
 
 mixin googlemap(setting)
     | #{"\n"}
