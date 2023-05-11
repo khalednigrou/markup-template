@@ -1,0 +1,99 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Sass Doc</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Sass Doc - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>Scss doument for markup-template.</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/khalednigrou/markup-template">Sass Doc</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-function"><a href="#undefined-function">functions</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="_vw" data-type="function"><a href="#undefined-function-_vw">_vw</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="_em" data-type="function"><a href="#undefined-function-_em">_em</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="mq" data-type="mixin"><a href="#undefined-mixin-mq">mq</a></li></ul><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-variable"><a href="#undefined-variable">variables</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="colors" data-type="variable"><a href="#undefined-variable-colors">colors</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="breakpoints" data-type="variable"><a href="#undefined-variable-breakpoints">breakpoints</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="design-sizes" data-type="variable"><a href="#undefined-variable-design-sizes">design-sizes</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="spacing-units" data-type="variable"><a href="#undefined-variable-spacing-units">spacing-units</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="font-sizes" data-type="variable"><a href="#undefined-variable-font-sizes">font-sizes</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="font-families" data-type="variable"><a href="#undefined-variable-font-families">font-families</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-function"><h2 class="main__heading--secondary"><div class="container">functions</div></h2><section class="main__item container item" id="undefined-function-_vw"><h3 class="item__heading"><a class="item__name" href="#function-_vw">_vw</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _vw() { 
+  $value: map-get($design-sizes, sp);
+  @if($size == &#39;pc&#39;) {
+    $value: map-get($design-sizes, pc);
+  }
+  $rate: 100 / $value;
+  @return $rate * $px * 1vw;
+ }" data-collapsed="@function _vw() { ... }"><code>@function _vw() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Media Queries</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section><section class="main__item container item" id="undefined-function-_em"><h3 class="item__heading"><a class="item__name" href="#function-_em">_em</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@function _em() { 
+  $em: $size * 0.0625em;
+  @return $em
+ }" data-collapsed="@function _em() { ... }"><code>@function _em() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>em変換</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p></section></section><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="undefined-mixin-mq"><h3 class="item__heading"><a class="item__name" href="#mixin-mq">mq</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin mq($size: md, $width: max) { 
+  $result: 0;
+  @if(type-of($size) == number) {
+    $result: $size;
+  } @else {
+    @each $key, $value in $breakpoints {
+      @if($key == $size) {
+        $result: $value;
+      }
+    }
+  }
+  @if($width == min) {
+    $result: $result + 1;
+  }
+  @media (#{$width}-width: #{$result}px) {
+    @content;
+  }
+ }" data-collapsed="@mixin mq($size: md, $width: max) { ... }"><code>@mixin mq($size: md, $width: max) { ... }</code></pre></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$size</code></th><td data-label="desc"><p>size in pixel</p></td><td data-label="type"><code>Number</code> or <code>String</code></td><td data-label="default"><code>md</code></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$width</code></th><td data-label="desc"><p>max|min</p></td><td data-label="type"><code>Number</code></td><td data-label="default"><code>max</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><div class="example__description"><p>Basic Usage</p></div><pre class="example__code language-scss"><code>// Example
+.el {
+    color: red;
+    @include mq(){
+        color: blue;
+    }
+}
+
+// Output
+.el { color: red; }
+@media (max-width: 1020px) {
+    .el { color: blue; }
+}</code></pre></div><div class="item__example example"><div class="example__description"><p>Advance Usage</p></div><pre class="example__code language-scss"><code>// Example
+.el {
+    color: red;
+    @include mq(500, min){
+        color: blue;
+    }
+}
+
+// Output
+.el { color: red; }
+@media (max-width: 500px) {
+    .el { color: blue; }
+}</code></pre></div></section></section><section class="main__sub-section" id="undefined-variable"><h2 class="main__heading--secondary"><div class="container">variables</div></h2><section class="main__item container item" id="undefined-variable-colors"><h3 class="item__heading"><a class="item__name" href="#variable-colors">colors</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$colors: (
+  // base
+  prime: #0650cb,
+  secend: #001750,
+  
+  // main
+  bg: #f8f3ed,
+  text: #585e66,
+  border: #e7d4c5,
+
+  // gray
+  gray-k: #1d2528,
+  gray-light: #f0f0f1,
+  gray-mid: #c1c6c9,
+  gray-dark: #39464d,
+  white: #ffffff,
+  black: #000000,
+  
+  // state
+  success: #a3ca60,
+  info: #0650cb,
+  warning: #eaba5d,
+  error: #dd3e34
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>List of Colors</p></div></section><section class="main__item container item" id="undefined-variable-breakpoints"><h3 class="item__heading"><a class="item__name" href="#variable-breakpoints">breakpoints</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$breakpoints: (
+  sm: 768,
+  md: 1020,
+  lg: 1400,
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>List of Breakpoints</p></div></section><section class="main__item container item" id="undefined-variable-design-sizes"><h3 class="item__heading"><a class="item__name" href="#variable-design-sizes">design-sizes</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$design-sizes: (
+  sp: 375,
+  tb: 992,
+  pc: 1440,
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>List of Design sizes</p></div></section><section class="main__item container item" id="undefined-variable-spacing-units"><h3 class="item__heading"><a class="item__name" href="#variable-spacing-units">spacing-units</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$spacing-units: (
+  xs: 8,
+  sm: 16,
+  md: 32,
+  lg: 64,
+  xl: 128,
+  xxl: 256,
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>List of Spacing Units</p></div></section><section class="main__item container item" id="undefined-variable-font-sizes"><h3 class="item__heading"><a class="item__name" href="#variable-font-sizes">font-sizes</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$font-sizes: (
+  &quot;sm&quot;: _em(12),
+  &quot;md&quot;: 1em,
+  &quot;lg&quot;: _em(24),
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>List of Font Sizes</p></div></section><section class="main__item container item" id="undefined-variable-font-families"><h3 class="item__heading"><a class="item__name" href="#variable-font-families">font-families</a></h3><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$font-families: (
+  &quot;default&quot;: sans-serif,
+  &quot;en&quot;: sans-serif,
+  &quot;ja&quot;: sans-serif,
+) !default;</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>List of Font Families</p></div></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/khalednigrou/markup-template">Sass Doc</a><!-- Version --><!-- License --></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

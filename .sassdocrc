@@ -1,0 +1,9 @@
+{
+  "package": {
+    "title": "Sass Doc",
+    "name": "markup-template",
+    "homepage": "https://github.com/khalednigrou/markup-template",
+    "description": "Scss doument for markup-template."
+  },
+  "autofill": "false"
+}
