@@ -1,0 +1,80 @@
+/**
+ * Colors
+====================*/
+
+$colors: (
+  // base
+  prime: #0650cb,
+  secend: #001750,
+  blk: #000000,
+  wht: #ffffff,
+
+  // main
+  bg: #ffffff,
+  text: #333,
+  border: #ccc,
+
+  // gray
+  gray-1: #666,
+  gray-2: #999,
+  gray-3: #ccc,
+
+  // state
+  success: #ccc,
+  info: #ccc,
+  warning: #ccc,
+  error: #ccc
+) !default;
+
+/**
+ * Breakpoints
+====================*/
+
+$breakpoints: (
+  sm: 768,
+  md: 1020,
+  lg: 1400,
+) !default;
+
+/**
+ * Design Sizes
+====================*/
+
+$design-sizes: (
+  sp: 375,
+  tb: 992,
+  pc: 1440,
+) !default;
+
+/**
+ * Spacing Units
+====================*/
+
+$spacing-units: (
+  xs: 8,
+  sm: 16,
+  md: 32,
+  lg: 64,
+  xl: 128,
+  xxl: 256,
+) !default;
+
+/**
+ * Font sizes
+====================*/
+
+$font-sizes: (
+  "sm": _em(12),
+  "md": 1em,
+  "lg": _em(24),
+) !default;
+
+/**
+ * Font Families
+====================*/
+
+$font-families: (
+  "default": sans-serif,
+  "en": sans-serif,
+  "ja": sans-serif,
+) !default;

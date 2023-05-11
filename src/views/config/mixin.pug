@@ -1,0 +1,80 @@
+//- 汎用mixin サイト固有のmixinはlocalmixinへ記述してください
+//- mixin
+mixin meta(metas)
+    meta(name="description", content=metas.description)
+    meta(name="keywords", content=metas.keyword)
+    //- meta(name="author", content="")
+
+mixin meta_ogp(metas)
+    meta(name="twitter:site", content=metas.siteurl)
+    meta(name="twitter:card", content="summary")
+    meta(name="twitter:description", content=metas.description)
+    meta(name="twitter:image:src", content=require("Images/ogp.png"))
+    //- meta(name="twitter:creator", content="")
+    meta(property="og:title", content=metas.title)
+    meta(property="og:site_name", content=metas.title)
+    meta(property="og:type", content="website")
+    meta(property="og:locale", content=metas.locale)
+    meta(property="og:image", content=require("Images/ogp.png"))
+    meta(property="og:description", content=metas.description)
+    //- meta(property="fb:app_id", content="metas.fbAppId")
+    
+mixin favicon()
+    //- Favicon
+    link(rel='shortcut icon', href=require("Images/favicons/favicon-32px.png"))
+    link(rel='shortcut icon', href=require("Images/favicons/favicon.svg"))
+
+
+mixin googlemap(setting)
+    | #{"\n"}
+    |var latlng = new google.maps.LatLng(#{setting.latlng[0]}, #{setting.latlng[1]});
+    |var myOptions = {zoom: 15,center: latlng,mapTypeId: google.maps.MapTypeId.ROADMAP,styles: [{"elementType": "geometry","stylers": [{"saturation": -100}    ]  },  {    "elementType": "labels",    "stylers": [      {        "saturation": -100      }    ]  }]};
+    |var #{setting.map} = new google.maps.Map(document.getElementById("#{setting.map}"),myOptions);
+    |var marker = new google.maps.Marker({position: latlng,map: #{setting.map},icon: 'img/pin.png',});
+
+
+//- srcset
+//- TODO: require化
+//- mixin imgsrcset(setting, set2x=false)
+//-     -
+//-         var srcary = setting.src.split('.');
+//-         var src2x = dir + srcary[0] + '@2x.' + srcary[1] + ' 2x';
+//-     if(set2x)
+//-         img(src!=dir + srcary[0] + '@2x.' + srcary[1], alt!=setting.alt, class!=setting.class, id!=setting.id)
+//-     else
+//-         img(src!=dir + setting.src, srcset!=src2x, alt!=setting.alt, class!=setting.class, id!=setting.id)
+
+//- picture
+//- pictureタグを一定のルールで出力します
+//- TODO: require化
+//- mixin picture(setting, set3x=false, sp=true)
+//-     -
+//-         var url = setting.src;
+//-         var srcary = url.split('.');
+
+//-         //IE用
+//-         if(sp)
+//-             var spIE = srcary[0] + '--sp.' + srcary[1];
+//-         //webp変換
+//-         if(webp)
+//-             srcary[1] = 'webp';
+//-         if(sp)
+//-             var sp = srcary[0] + '--sp.' + srcary[1];
+//-             var sp1x = srcary[0] + '--sp.' + srcary[1]+ ' 1x';
+//-             var sp2x = srcary[0] + '--sp@2x.' + srcary[1]+ ' 2x';
+//-             if(set3x)
+//-                 var sp3x = srcary[0] + '--sp@3x.' + srcary[1]+ ' 3x';
+//-             else
+//-                 var sp3x = '';
+
+//-         var src1x = srcary[0] + '.' + srcary[1];
+//-         var src2x = srcary[0] + '@2x.' + srcary[1] + ' 2x';
+//-     picture
+//-         if(sp)
+//-             source(media="(min-width: 769px)" src!=url srcset!=(src1x + ' , ' + src2x))
+//-             source(media="(max-width: 768px)" src!=sp srcset!=(sp1x + ',' + sp2x + ',' + sp3x))
+//-             img.only-pc(src!=url, alt!=setting.alt, class!=setting.class)
+//-             img.only-sp(src!=spIE, alt!=setting.alt, class!=setting.class)
+//-         else
+//-             source(src!=url srcset!=(src2x))
+//-             img(src!=url, alt!=setting.alt, class!=setting.class)

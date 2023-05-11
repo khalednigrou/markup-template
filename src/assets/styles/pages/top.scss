@@ -1,0 +1,15 @@
+
+// Foundation
+@import "../foundation/_mixin";
+@import "../foundation/_variables";
+
+// Component
+@import "../component/_localmixin";
+
+// Page Original Style
+.page-top{
+    h1 {
+      color: blue;
+      font-size: 40px
+    }
+  }

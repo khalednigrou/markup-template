@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+:root {
+  /**
+   * Color variables
+  ====================*/
+  @each $color, $value in $colors {
+    --clr--#{$color}: #{$value};
+  }
+
+  /**
+   * Font size variables
+  ====================*/
+
+  @each $size, $value in $font-sizes {
+    --fs--#{$size}: #{$value};
+  }
+
+  /**
+   * Font variables
+  ====================*/
+
+  @each $font, $value in $font-families {
+    --ff--#{$font}: #{$value};
+  }
+}
+
+html {
+  font-family: var(--ff--default);
+  font-size: var(--fs--md);
+}
+
+body {
+  background-color: var(--clr--bg);
+  color: var(--clr--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+img {
+  height: auto;
+  object-fit: contain;
+}

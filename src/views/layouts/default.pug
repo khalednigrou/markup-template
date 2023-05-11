@@ -1,0 +1,55 @@
+//- サイト内で読み込むjsonデータ
+- var metas = JSON.stringify(require('Views/data/metas.js'))
+
+//- mixin
+include Config/mixin
+
+//- Local variables
+- const fullYear = (new Date).getFullYear();
+
+//- External variables
+block vars
+  - let pageClass = ""
+  - pageClass = ""
+
+doctype html
+html(lang=htmlLang)
+  
+  head
+    //- Page title
+    title= title
+    //- Metas
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(charset='UTF-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, minimum-scale=1.0")
+    meta(name="description", content=description)
+    meta(name="keywords", content=keyword)
+    //- OGP tags
+    +meta_ogp(metas)
+
+    //- Favicon
+    +favicon()
+
+    //- Page styles
+    block style
+      // critical styles inline
+      style=require('Styles/critical.scss?inline')
+
+      //- common styles
+      link(rel='stylesheet' href=require('Styles/app.scss'))
+
+    //- Additional head block, e.g. for preload scripts in head
+    block head
+      script(src=require('Scripts/app.js') defer)
+
+  body
+
+    block body
+      div.wrapper(class = pageClass)
+        include Includes/header
+        div.content
+          block content
+        include Includes/footer
+
+    //- Page scripts
+    block script

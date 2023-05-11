@@ -1,0 +1,32 @@
+.wrapper{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.content {
+  position: relative;
+  &__inner {
+    margin-top: 40px;
+  }
+}
+
+// responsive
+@include mq(sm,max) {
+  .pc {
+    display: none;
+  }
+}
+.md {
+  display: none;
+  @include mq(md,max) {
+    display: block;
+  }
+}
+.sp {
+  display: none;
+  @include mq(sm,max) {
+    display: block;
+  }
+}

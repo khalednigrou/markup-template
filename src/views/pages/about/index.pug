@@ -1,0 +1,19 @@
+extends Layouts/default.pug
+
+//- ページ個別にメタデータを変更したい場合はここで再設定できます
+block vars
+  - const title = 'About'
+  - pageClass = 'page-about'
+
+//- ページ個別にスタイルシートを追加したい場合はここへ記述
+append style
+  link(href=require('./styles.scss') rel='stylesheet')
+
+//- ページ個別にJsを追加したい場合はここへ記述
+append script
+  script(src=require('./main.js') defer)
+
+block content
+  section
+    h1 About
+    p hello
