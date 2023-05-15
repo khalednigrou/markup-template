@@ -79,8 +79,8 @@ module.exports = (env, argv) => {
         // styles
         {
           test: /\.s?(c|a)ss$/,
-          exclude: /\.s?(c|a)ss$/i,
           use: [
+            // 'style-loader',
             {
               loader: 'css-loader',
               options: {
@@ -88,13 +88,6 @@ module.exports = (env, argv) => {
               },
             },
             'postcss-loader',
-            'sass-loader',
-          ],
-        },
-        {
-          test: /\.s?(c|a)ss$/i,
-          use: [
-            'style-loader',
             'sass-loader',
           ],
         },
