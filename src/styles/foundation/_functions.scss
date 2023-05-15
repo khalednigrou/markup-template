@@ -1,24 +1,28 @@
 /**
  * vw変換
-====================*/
+==================== */
 /// Media Queries
 
-@function _vw($px, $size) {
-  $value: map-get($design-sizes, sp);
-  @if($size == 'pc') {
-    $value: map-get($design-sizes, pc);
+@function vw($px, $size) {
+  $value: map.get($design-sizes, sp);
+  
+  @if $size == "pc" {
+    $value: map.get($design-sizes, pc);
   }
+
   $rate: 100 / $value;
+  
   @return $rate * $px * 1vw;
 }
 
-
 /**
  * em変換
-====================*/
+==================== */
 /// em変換
 
-@function _em($size) {
+@function em($size) {
+  
   $em: $size * 0.0625em;
-  @return $em
+  
+  @return $em;
 }

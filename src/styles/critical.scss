@@ -2,16 +2,16 @@
  * Critical Css
  */
 // Foundation
-@import "foundation/_variables";
-@import "foundation/_functions";
-@import "foundation/_mixin";
-@import "foundation/_reset";
-@import "foundation/_base";
-@import "foundation/_animation";
+@import "foundation/variables";
+@import "foundation/functions";
+@import "foundation/mixin";
+@import "foundation/reset";
+@import "foundation/base";
+@import "foundation/animation";
 
 // Component
-@import "component/_localmixin";
-@import "component/_footer";
-@import "component/_header";
-@import "component/_breadcrumbs";
-@import "component/_layout";
+@import "component/localmixin";
+@import "component/footer";
+@import "component/header";
+@import "component/breadcrumbs";
+@import "component/layout";

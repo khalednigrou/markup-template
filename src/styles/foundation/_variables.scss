@@ -1,6 +1,6 @@
 /**
  * Colors
-====================*/
+==================== */
 /// List of Colors
 $colors: (
   // base
@@ -12,9 +12,9 @@ $colors: (
   gray-light: #f0f0f1,
   gray-mid: #c1c6c9,
   gray-dark: #39464d,
-  wht: #ffffff,
-  blk: #000000,
-  
+  wht: #fff,
+  blk: #000,
+
   // state
   success: #a3ca60,
   info: #0650cb,
@@ -22,18 +22,14 @@ $colors: (
   error: #dd3e34,
 
   // main
-  bg: #ffffff,
+  bg: #fff,
   text: #39464d,
-  border: #c1c6c9,
+  border: #c1c6c9
 ) !default;
-
-$clr-bg: map-get($colors, bg );
-$clr-text: map-get($colors, text );
-$clr-border: map-get($colors, border );
 
 /**
  * Breakpoints
- ====================*/
+ ==================== */
 /// List of Breakpoints
 $breakpoints: (
   sm: 768,
@@ -43,7 +39,7 @@ $breakpoints: (
 
 /**
  * Design Sizes
-====================*/
+==================== */
 /// List of Design sizes
 $design-sizes: (
   sp: 375,
@@ -53,7 +49,7 @@ $design-sizes: (
 
 /**
  * Spacing Units
-====================*/
+==================== */
 /// List of Spacing Units
 
 $spacing-units: (
@@ -67,17 +63,17 @@ $spacing-units: (
 
 /**
  * Font sizes
-====================*/
+==================== */
 /// List of Font Sizes
 $font-sizes: (
-  "sm": _em(12),
+  "sm": em(12),
   "md": 1em,
-  "lg": _em(24),
+  "lg": em(24),
 ) !default;
 
 /**
  * Font Families
-====================*/
+==================== */
 /// List of Font Families
 
 $font-families: (

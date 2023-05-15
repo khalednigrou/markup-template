@@ -28,14 +28,14 @@ npm run preview
 
 ## Build for GitHub page
 
-Build resources for GitHub Page
+### Build Sass Documentation for GitHub Page
 
 1. Generate resources:
 
     ```sh
-    npm run build
+    npm run sassdoc
     ```
 
-2. Copy generated files from `/dist/` to `/docs/`.
+2. Copy generated files from `/sassdoc/` to `/docs/sass/`.
 
-3. Commit and push to `master`.
+3. Commit and push to `main`.

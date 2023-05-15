@@ -5,17 +5,16 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 
-
 module.exports = (env, argv) => {
   const isProd = argv.mode === 'production'
 
   return {
+    target: 'web',
     mode: isProd ? 'production' : 'development',
-    devtool: isProd ? 'source-map' : 'inline-source-map',
-    stats: 'minimal',
-
+    devtool: isProd ? 'source-map' : 'eval-cheap-source-map',
+    stats: isProd ? 'errors-only' : 'minimal',
+    bail: isProd ? true : false,
     entry: require('./routes.js'),
-
     output: {
       path: path.join(__dirname, 'dist'),
       publicPath: 'auto',
@@ -23,7 +22,12 @@ module.exports = (env, argv) => {
       chunkFilename: 'js/[name].[id].js',
       clean: true,
     },
-
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        name: false,
+      },
+    },
     resolve: {
       alias: {
         Views: path.join(__dirname, 'src/views/'),
@@ -36,11 +40,10 @@ module.exports = (env, argv) => {
         Scripts: path.join(__dirname, 'src/scripts/'),
       },
     },
-
     plugins: [
-      new Webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(isProd ? 'production' : 'development'),
-      }),
+      // new Webpack.DefinePlugin({
+      //   'process.env.NODE_ENV': JSON.stringify(isProd ? 'production' : 'development'),
+      // }),
       new PugPlugin({
         pretty: true,
         css: {
@@ -57,14 +60,30 @@ module.exports = (env, argv) => {
         files: path.join('src', '**/*.s?(a|c)ss'),
       }),
       new CopyWebpackPlugin({
-        patterns: [
-            { from: 'static' }
-        ]
+        patterns: [{ from: 'static' }]
       })
     ],
-
     module: {
       rules: [
+        // Scripts
+        {
+          test: /\.m?js$/,
+          include: /node_modules/,
+          type: 'javascript/auto',
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          include: [
+            path.resolve(__dirname, 'node_modules', '@dogstudio', 'highway'),
+            path.resolve(__dirname, '../src'),
+          ],
+          use: {
+            loader: "babel-loader",
+          },
+        },
+
+        // HTML templates
         {
           test: /\.pug$/,
           loader: PugPlugin.loader,
@@ -76,11 +95,11 @@ module.exports = (env, argv) => {
           }
         },
 
-        // styles
+        // Styles
         {
-          test: /\.s?(c|a)ss$/,
-          exclude: /\.s?(c|a)ss$/i,
+          test: /\.s?(a|c)ss$/i,
           use: [
+            'style-loader',
             {
               loader: 'css-loader',
               options: {
@@ -91,15 +110,8 @@ module.exports = (env, argv) => {
             'sass-loader',
           ],
         },
-        {
-          test: /\.s?(c|a)ss$/i,
-          use: [
-            'style-loader',
-            'sass-loader',
-          ],
-        },
 
-        // fonts
+        // Fonts
         {
           test: /\.(woff2?|ttf|otf|eot|svg)$/,
           type: 'asset/resource',
@@ -147,8 +159,8 @@ module.exports = (env, argv) => {
     performance: {
       hints: isProd ? 'error' : 'warning',
       // in development mode the size of assets is bigger than in production
-      maxEntrypointSize: isProd ? 1024000 : 4096000,
-      maxAssetSize: isProd ? 1024000 : 4096000,
+      // maxEntrypointSize: isProd ? 1024000 : 4096000,
+      // maxAssetSize: isProd ? 1024000 : 4096000,
     },
 
     devServer: {

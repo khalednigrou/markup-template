@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+      "target": "es2016",
+      "allowSyntheticDefaultImports": false,
+      "baseUrl": "./",
+      "paths": {
+        "Views": ["src/views/"],
+        "Config": ["src/views/config/"],
+        "Includes": ["src/views/includes/"],
+        "Layouts": ["src/views/layouts/"],
+        "Images": ["src/images/"],
+        "Fonts": ["src/fonts/"],
+        "Styles": ["src/styles/"],
+        "Scripts": ["src/scripts/"],
+      }
+    },
+    "exclude": ["node_modules", "dist"]
+  }

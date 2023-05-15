@@ -1,36 +1,27 @@
 const routes = [
     {
-        // dist/index.html
-        dist: "index",
+        dist: "index", // dist/index.html
         src: "src/views/pages/home/index.pug",
-        meta: {
-            title: "Home"
-        }
+        meta: { title: "Home" }
     },
     {
-        // dist/about.html
-        dist: "about/index",
+        dist: "about/index", // dist/about.html
         src: "src/views/pages/about/index.pug",
-        meta: {
-            title: "About"
-        }
+        meta: { title: "About" }
     },
     {
-        // contact/index.html
-        dist: "contact/index",
+        dist: "contact/index", // contact/index.html
         src: "src/views/pages/contact/index.pug",
-        meta: {
-            title: "Contact"
-        },
+        meta: { title: "Contact" },
     }
-];
+]
 
-let render = {};
+const render = {}
 
 routes.map((route) => {
-    const json = JSON.stringify({meta: route.meta, data: route.data});
-    render[route.dist] = `${route.src}?json=${json}`;
-});
+    const json = JSON.stringify({meta: route.meta, data: route.data})
+    render[route.dist] = `${route.src}?json=${json}`
+})
 
 console.log("routes:",render)
 
